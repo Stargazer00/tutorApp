@@ -5,6 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Use bootstrap
+gem 'bootstrap-sass'
+# Use Bcrypt
+gem 'bcrypt'
 # Use jQuery
 gem 'jquery-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

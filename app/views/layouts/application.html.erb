@@ -9,6 +9,18 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="jumbotron">
+      <h1>Smart Tutor</h1>
+    </div>
+
+    <div class="errors">
+    	<% flash.each do |message_type, message| %>
+    		<%= content_tag(:div, message, class: "alert") %>
+    	<% end %>
+    </div>
+
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

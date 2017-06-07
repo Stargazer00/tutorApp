@@ -1,0 +1,11 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.jumbotron {
+	background: tomato;
+	color: white;
+}
+
+.jumbotron h1{
+	text-align: center;
+}

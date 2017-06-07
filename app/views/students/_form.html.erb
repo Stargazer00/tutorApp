@@ -1,0 +1,39 @@
+<%= form_for(@student) do |form| %>
+	<% if @student.errors.any? %>
+		<div class="error_explanation alert alert-danger">
+			<h2><%= pluralize(@student.errors.count, "error") %> occurred:</h2>
+
+			<ul>
+				<% @student.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<div class="form-group">
+			<div class="input-group name">
+		    	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+		    	<%= form.text_field :name, class: "form-control", :placeholder => "Name"%>
+			</div><br/>
+
+			<div class="email input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+				<%= form.email_field :email, class: "form-control", placeholder: "Email" %>
+			</div><br/>
+
+			<div class="input-group password">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+				<%= form.password_field :password, class: "form-control", placeholder: "Password" %>
+			</div><br/>
+
+			<div class="input-group password">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+				<%= form.password_field :password_confirmation, class: "form-control", placeholder: "Password confirmation" %>
+			</div><br/>
+
+			<p class="submit">
+				<%= form.submit "Register", class: "btn btn-warning" %>
+			</p>
+	</div>
+<% end %>
