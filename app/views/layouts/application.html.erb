@@ -13,6 +13,47 @@
       <h1>Smart Tutor</h1>
     </div>
 
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <% if logged_in? %>
+            <% if tutor? %>
+              <li><%= link_to "Logout", tutor_logout_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Logout", student_logout_path, method: :delete %></li>
+            <% end %>
+          <% else %>
+
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Sign up <span class="caret"></span></a>
+
+              <ul class="dropdown-menu">
+                <li><%= link_to "Sign up as Student/Parent", new_student_path, class: "label-warning" %></li>
+                <li><%= link_to "Sign up as Tutor", new_tutor_path, class: "label-warning" %></li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-log-in"></span> Login <span class="caret"></span></a>
+
+              <ul class="dropdown-menu">
+                <li><%= link_to "Login as Student/Parent", student_login_path %></li>
+                <li><%= link_to "Login as Tutor", tutor_login_path %></li>
+              </ul>
+            </li>
+
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
+
     <div class="alert">
     	<% flash.each do |message_type, message| %>
     		<%= content_tag(:div, message, class: "alert alert-success") %>

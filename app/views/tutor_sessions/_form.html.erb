@@ -1,0 +1,25 @@
+<h1>Log in</h1>
+
+	<%= form_for(:session, url: tutor_login_path) do |form| %>
+
+		<div class="form-group">
+			<div class="input-group name">
+		    	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+		    	<%= form.text_field :name, class: "form-control", :placeholder => "Name"%>
+			</div><br/>
+
+			<div class="input-group password">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+				<%= form.password_field :password, class: "form-control", placeholder: "Password" %>
+			</div><br/>
+
+			<p class="submit">
+				<%= form.submit "Login", class: "btn btn-warning" %>
+			</p>
+
+		</div>
+	<% end %>
+
+		<p>New user? <%= link_to "Sign up now!", new_tutor_path %></p>
+	</div>
+</div>

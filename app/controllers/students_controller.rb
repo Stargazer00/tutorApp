@@ -1,4 +1,7 @@
 class StudentsController < ApplicationController
+
+	before_action :set_student, only: [:show, :edit, :destroy]
+
 	def new
 		@student = Student.new
 	end
@@ -8,10 +11,19 @@ class StudentsController < ApplicationController
 
 		if @student.save
 			flash[:notice] = "成功註冊"
-			redirect_to root_path
+			redirect_to student_path(@student)
 		else
 			render 'new'
 		end
+	end
+
+	def show
+	end
+
+	def edit
+	end
+
+	def destroy
 	end
 
 	private
@@ -20,4 +32,7 @@ class StudentsController < ApplicationController
 			params.require(:student).permit(:name, :email, :password, :password_confirmation)
 		end
 
+		def set_student
+			@student = Student.find(params[:id])
+		end
 end
