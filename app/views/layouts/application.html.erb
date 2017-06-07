@@ -13,9 +13,9 @@
       <h1>Smart Tutor</h1>
     </div>
 
-    <div class="errors">
+    <div class="alert">
     	<% flash.each do |message_type, message| %>
-    		<%= content_tag(:div, message, class: "alert") %>
+    		<%= content_tag(:div, message, class: "alert alert-success") %>
     	<% end %>
     </div>
 
