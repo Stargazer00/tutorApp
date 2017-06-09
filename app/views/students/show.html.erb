@@ -1,1 +1,38 @@
 <h1>Welcome <%= "#{@student.name}" %></h1>
+
+<h3>Profile</h3>
+<table class="table table-striped">
+
+<div class="container">
+<tbody>
+	<tr>
+		<td>User name: </td>
+		<td><%= @student.name %></td>
+	</tr>
+	<tr>
+		<td>Email: </td>
+		<td><%= @student.email %></td>
+	</tr>
+	<tr>
+		<td>Contact Person : </td>
+		<td><%= @student.contact_name %></td>
+	</tr>
+	<tr>
+		<td>Contact Person Tel No : </td>
+		<td><%= @student.mobile_no %></td>
+	</tr>
+	<tr>
+		<td>Relationship with student : </td>
+		<td><%= @student.relation %></td>
+	</tr>
+	<tr>
+		<td>Residence District : </td>
+		<td><%= @student.district %></td>
+	</tr>
+	<tr>
+		<td>Residence Address : </td>
+		<td><%= @student.address %></td>
+	</tr>
+</tbody>
+</table>
+</div>

@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170606095030) do
+ActiveRecord::Schema.define(version: 20170609061328) do
+
+  create_table "cases", force: :cascade do |t|
+    t.integer "categories"
+    t.integer "level_genearl"
+    t.integer "level_oral"
+    t.integer "level_music"
+    t.integer "level_other"
+    t.integer "subject_general"
+    t.integer "subject_oral"
+    t.integer "subject_music"
+    t.integer "subject_other"
+    t.integer "no_of_student"
+    t.integer "freq_of_lesson"
+    t.string "lesson_time"
+    t.integer "tuition_fee"
+    t.integer "tuition_per"
+    t.integer "min_edu_level"
+    t.integer "tutor_gender"
+    t.string "other_info"
+    t.integer "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_cases_on_student_id"
+  end
 
   create_table "students", force: :cascade do |t|
     t.string "name"
@@ -18,6 +42,11 @@ ActiveRecord::Schema.define(version: 20170606095030) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "mobile_no"
+    t.integer "relation"
+    t.integer "district"
+    t.string "address"
+    t.string "contact_name"
   end
 
   create_table "tutors", force: :cascade do |t|

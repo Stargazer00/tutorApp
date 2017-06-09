@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
 
-	before_action :set_student, only: [:show, :edit, :destroy]
+	before_action :set_student, except: [:new, :create]
 
 	def new
 		@student = Student.new
@@ -23,13 +23,22 @@ class StudentsController < ApplicationController
 	def edit
 	end
 
+	def update
+		if @student.update_attributes(student_params)
+			flash[:success] = "Profile updated"
+			redirect_to @student
+		else
+			render 'edit'
+		end
+	end
+
 	def destroy
 	end
 
 	private
 
 		def student_params
-			params.require(:student).permit(:name, :email, :password, :password_confirmation)
+			params.require(:student).permit(:name, :email, :password, :password_confirmation, :contact_name, :mobile_no, :relation, :district, :address)
 		end
 
 		def set_student

@@ -16,17 +16,23 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <ul class="nav navbar-nav">
+        <% if logged_in? %>
+          <%= render "students/nav" %>
+        <% else %>
           <li class="active"><a href="#">Home</a></li>
+          <li><% link_to "Find Tutor", "#" %></li>
           <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
+        <% end %>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
             <% if tutor? %>
               <li><%= link_to "Logout", tutor_logout_path, method: :delete %></li>
+              <li><%= link_to "Edit Profile", "#" %></li>
             <% else %>
               <li><%= link_to "Logout", student_logout_path, method: :delete %></li>
+              <li><%= link_to "Edit Profile", edit_student_path(@current_user) %></li>
             <% end %>
           <% else %>
 
